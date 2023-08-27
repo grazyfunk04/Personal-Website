@@ -1,0 +1,726 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html{
+    font-size: 96.5%;
+    overflow-x: hidden;
+}
+
+:root{
+    --primary-color: #000;
+    --secondary-color: #fff;
+    --font-color: aqua;
+    --third-color:rgba(0, 0, 0, 0.8);
+}
+
+.light-theme{
+    --primary-color: #fff;
+    --secondary-color: #000;
+    --font-color: rgb(235, 93, 235);
+    --third-color:rgba(255, 255, 255, 0.8);
+}
+
+body{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+}
+
+#icon{
+    width: 25px;
+    cursor: pointer;
+}
+
+/* ====NAVBAR CSS==== */
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    background-color: var(--primary-color);
+    width: 100%;
+    margin: 0 auto;
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li{
+    list-style: none;
+    margin: 0 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+nav ul li a:hover{
+    color: var(--secondary-color);
+    font-size: 1.02rem;
+    text-decoration: none; 
+    border-bottom:3px solid var(--font-color);
+}
+
+.left{
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+.left a{
+    text-decoration: none !important;
+    color: var(--secondary-color);
+}
+
+.left a:hover{
+    color: var(--font-color);
+}
+
+.toggle_btn{
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+}
+
+.dropdown_menu li{
+    list-style: none;
+    margin: 0 20px;
+}
+
+.dropdown_menu li a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.dropdown_menu li a:hover{
+    color: var(--secondary-color);
+    font-size: 1.02rem;
+    text-decoration: none; 
+    border-bottom:3px solid var(--font-color);
+}
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu li{
+    padding: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown_menu.open{
+    height: 180px;
+}
+
+@media(max-width: 1092px){
+    .right .links{
+        display: none;
+    }
+
+    .toggle_btn{
+        display: block;
+        margin-right: 20px;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+}
+
+
+/* ====FIRST SECTION CSS==== */
+#image_1{
+    backdrop-filter: blur(12px);
+    border: 5px solid var(--primary-color);
+    border-radius: 60%;
+    animation: float 5s ease-in-out infinite;
+    border: 5px solid var(--secondary-color);
+}
+
+@keyframes float{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-2.5rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.firstSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 130px 0;
+}
+
+.firstSection > div{
+    width: 30%;
+}
+
+.leftSection{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.leftSection .buttons{
+    padding: 50px 0;
+}
+
+.leftSection .btn{
+    padding:12px;
+    background: var(--font-color);
+    color: var(--primary-color);
+    border: 4px solid var(--secondary-color);
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 1.3rem;
+    font-size: 1.3rem;
+    transition: 0.5s ease;
+    margin: 1rem 1.5rem 0 0 ;
+}
+
+.leftSection .btn:hover{
+    color: var(--font-color);
+    background: var(--primary-color);
+    box-shadow: 0 0 1.2rem var(--font-color);
+}
+
+.rightSection img{
+    width: 80%;
+    margin: 50px 0;
+}
+.purple{
+    color: var(--font-color)
+}
+.text-gray{
+    color: gray;
+}
+
+#element{
+    color: var(--font-color)
+}
+
+@media(max-width: 1500px){
+    .firstSection{
+        flex-direction: column-reverse;
+      }
+    .leftSection{
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .rightSection{
+        width: 400px !important;
+        height: 400px !important;
+        justify-content: center !important;
+        margin: 15px 70px;
+        margin-left: 150px;
+    }
+}
+
+/* ====SECOND SECTION CSS==== */
+.secondSectiontitle{
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 3rem;
+    font-family: "Poppins", sans-serif;
+    margin: 25px 20px;
+}
+
+.projects{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 15rem 0;
+}
+
+.projects-items{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem; 
+}
+
+.project-card{
+    position: relative;
+    height: 18rem;
+    width: 100%;
+    border-radius: 30%;
+    overflow: hidden;
+}
+
+.project-card img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 3.5rem;
+}
+
+.card-overlay{
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.card-overlay:hover{
+    background: rgba(0, 0, 0, 0);
+    color: var(--primary-color);
+    transition: 0.4s all linear;
+}
+
+.card-overlay .bx{
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    padding: 1.1rem;
+    background: var(--third-color);
+    border-radius: 40%;
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card-overlay .bx:hover{
+    transform: scale(1.2);
+    color: var(--font-color);
+    background: var(--primary-color);
+    box-shadow: 0 0 2rem var(--font-color);
+}
+
+
+/* ====SKILLS CSS==== */
+.skills{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10rem 0;
+}
+
+.skills-items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem;
+}
+
+.skill-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.skill-card:hover{
+    border-radius: 1rem solid;
+    transform: scale(1.05);
+}
+
+.skill-card .bx{
+    font-size: 8rem;
+    transform: 0.4s ease;
+}
+
+.skill-card .bx:hover{
+    color: var(--font-color);
+}
+
+.skill-card h3{
+    font-size: 2.5rem;
+    font-weight: 200;
+}
+
+.skill-card p{
+    text-align: center;
+    font-size: 1.3rem;
+    opacity: 0.5;
+}
+
+.skills_title{
+    text-align: center;
+    color: var(--secondary-color);
+    font-size: 3rem;
+    font-family: "Poppins", sans-serif;
+    margin: 25px 20px;
+}
+
+/* ====THIRD SECTION CSS==== */
+.aboutMeSection{
+    margin: 10rem 0;
+}
+.aboutMetitle{
+    text-align: center;
+    font-size: 3.0rem;
+    color: var(--secondary-color);
+    font-family: "Poppins", sans-serif;
+}
+
+#aboutMe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#aboutMeimg{
+    width: 350px;
+    height: 350px;
+    border: 5px solid var(--secondary-color);
+    margin: 20px 40px;
+    backdrop-filter: blur(12px);
+    border-radius: 60%;
+    /* animation: float 5s ease-in-out infinite; */
+}
+
+.aboutMeleftSection{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content{
+    word-wrap: break-word;
+    width: 30vw;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.04rem;
+}
+
+.aboutMeReadMore{
+    padding: 10px;
+    background:var(--font-color);
+    color: var(--primary-color);
+    border: 4px solid var(--secondary-color);
+    border-radius: 8rem;
+    font-size: 1.3rem;
+    transition: 0.5s ease;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 27px;
+}
+
+.aboutMeReadMore:hover{
+    color: var(--font-color);
+    background: var(--primary-color);
+    box-shadow: 0 0 1rem var(--font-color);
+}
+
+.aboutMeReadMore a{
+    color: var(--primary-color);
+}
+
+.aboutMeReadMore a:hover{
+    color: var(--font-color);
+}
+
+/* ====FOOTER CSS==== */
+footer{
+    background-color: var(--primary-color);
+    height: 150px;
+}
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer_name{
+    font-size: 1.9rem;
+    font-weight: 400;
+    margin-top: 46px;
+    margin-left: 35px;
+}   
+
+.footer_name a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.footer_name a:hover{
+    color: var(--font-color);
+}
+
+.data{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 10px;
+}
+
+.data ul{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.data ul li{
+    list-style: none;
+    padding: 1.3px 0;
+}
+
+.data ul li a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.data ul li a:hover{
+    color: var(--secondary-color);
+    font-size: 1.02rem;
+    text-decoration: none; 
+    border-bottom:3px solid var(--font-color);
+}
+
+.handles{
+    display: flex;
+    justify-content: space-around;
+}
+
+.handles a{
+    text-decoration: none;
+    
+}
+
+#github{
+    display: flex;
+    justify-content: space-around;
+    width: 2.0rem;
+    height: 2.0rem;
+    margin: 45px 5px;
+    color: var(--secondary-color);
+    font-size: 2.0rem;
+    transform: 0.4s ease;
+    border-radius: 50%;
+}
+
+#github:hover{
+    color: var(--font-color);
+    box-shadow: 0 0 1rem var(--font-color);
+}
+
+#twitter{
+    display: flex;
+    justify-content: space-around;
+    width: 2.0rem;
+    height: 2.0rem;
+    margin: 45px 5px;
+    color: var(--secondary-color);
+    font-size: 2.0rem;
+    transform: 0.4s ease;
+    border-radius: 50%;
+}
+
+#twitter:hover{
+    color: var(--font-color);
+    box-shadow: 0 0 1rem var(--font-color);
+}
+
+#whatsapp{
+    display: flex;
+    justify-content: space-around;
+    width: 2.0rem;
+    height: 2.0rem;
+    margin: 45px 5px;
+    color: var(--secondary-color);
+    font-size: 2.0rem;
+    transform: 0.4s ease;
+    border-radius: 50%;
+}
+
+#whatsapp:hover{
+    color: var(--font-color);
+    box-shadow: 0 0 1rem var(--font-color);
+}
+
+#linkedin{
+    display: flex;
+    justify-content: space-around;
+    width: 2.0rem;
+    height: 2.0rem;
+    margin: 45px 5px;
+    color: var(--secondary-color);
+    font-size: 2.0rem;
+    transform: 0.4s ease;
+    border-radius: 50%;
+}
+
+#linkedin:hover{
+    color: var(--font-color);
+    box-shadow: 0 0 1rem var(--font-color);
+}
+
+.footer-rights{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* Media Queries */
+@media(max-width:1200px){
+    html{
+        font-size: 80%;
+    }
+}
+
+@media(max-width:992px){
+    #aboutMeimg{
+        width: 30vw;
+        height: 30vw;
+    }
+
+    .project-card{
+        height: 14rem;
+    }
+
+    .skill-card .bx{
+        font-size: 4rem;
+    }
+
+}
+
+@media(max-width:767px){
+    .skills-items{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .skill-card[value="cplus"]{
+        display: none;
+    }
+
+    .projects-items{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #aboutMe{
+        flex-direction: column;
+    }
+
+    #aboutMeimg{
+        width: 30vw;
+        height: 30vw;
+        margin: 3rem 0;
+    }
+
+    #content{
+        flex-direction: column;
+        width: 80%;
+        word-wrap: break-word;
+    }
+
+    .skills_title, .secondSectiontitle, .aboutMetitle{
+        font-size: 2.7rem;
+    }
+
+    #aboutMeReadMore{
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
+        margin: 1rem 10rem;
+    }
+    
+    .data{
+        display: none;
+    }
+    
+    .footer_name{
+        font-size: 1rem;
+    }
+    
+    #image_1{
+        width: 50vw;
+        height: 50vw;
+    }
+
+    .rightSection{
+        justify-content: center;
+    }
+
+    .buttons .btn{
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:620px){
+    .data{
+        display: none;
+    }
+
+    .footer_name{
+        font-size: 1.2rem;
+    }
+    .skills-items{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .skill-card[value="cplus"]{
+        display: none;
+    }
+
+    .leftSection{
+        font-size: 1.5rem;
+    }
+
+    #image_1{
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .aboutMeReadMore{
+        border-radius: 1rem;
+    }
+}
+
+@media(max-width:450px){
+    .data{
+        display: none;
+    }
+
+    .footer_name{
+        font-size: 1.2rem;
+    }
+
+    .aboutMeReadMore{
+        border-radius: 1rem;
+    }
+
+    #image_1{
+        width: 80vw;
+        height: 80vw;
+    }
+}
